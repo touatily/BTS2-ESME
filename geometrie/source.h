@@ -53,6 +53,22 @@ public:
 
 };
 
+class Cercle{
+    friend std::ostream & operator<<(std::ostream & out, const Cercle & c);
+protected:
+    float rayon;
+    Point centre;
+
+public:
+    Cercle(float x, float y, float r);
+    Cercle(const Point & c, float r);
+    Cercle(const Point & c, const Point & p);
+
+    bool appartient(Point p) const;
+    void translater(float x, float y);
+    float superficie() const;
+    float perimetre() const;
+};
 
 #endif // SOURCE_H_INCLUDED
 

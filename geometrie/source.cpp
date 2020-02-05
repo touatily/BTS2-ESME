@@ -121,3 +121,37 @@ void Carre::translater(float x, float y){
     P2.translater(x, y);
 }
 
+// Cercle
+
+Cercle::Cercle(float x, float y, float r)
+:rayon(r), centre(Point(x, y)){
+}
+Cercle::Cercle(const Point& c, float r)
+:rayon(r), centre(c){
+}
+Cercle::Cercle(const Point& c, const Point & p)
+:rayon(c.distance(p)), centre(c){
+}
+
+bool Cercle::appartient(Point p) const{
+    float d = p.distance(centre);
+    return fabs(d - rayon) < 0.001;
+}
+
+void Cercle::translater(float x, float y){
+    centre.translater(x, y);
+}
+
+float Cercle::superficie() const{
+    return rayon * rayon * M_PI ;
+}
+float Cercle::perimetre() const {
+    return 2 * rayon * M_PI;
+}
+
+std::ostream & operator<<(std::ostream & out, const Cercle & c){
+    out << "Cercle : Centre " << c.centre << ", Rayon = " << c.rayon;
+    return out;
+}
+
+
