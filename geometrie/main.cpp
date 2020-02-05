@@ -12,17 +12,23 @@ int main()
 
     Triangle t1(p1, p2, p3);
 
-    if (t1.isRectangle())
-        cout << "rectangle" << endl;
-    else
-        cout << "Non rectangle !" << endl;
+    Cercle c(p1, p2);
 
+    Carre carr(p1, p2);
 
-    cout << "perim : " << t1.perimetre() << endl;
+    Plan p;
+    p.addForme(&p1);
+    p.addForme(&t1);
+    p.addForme(&c);
+    p.addForme(&carr);
+    p.addForme(&p1);
+    p.addForme(&p2);
+    p.addForme(&p3);
 
-    string s = t1.toString();
-    cout << t1 << endl;
+    cout << p;
 
+    p.translater(1,1);
+    cout << p;
 
 }
 
